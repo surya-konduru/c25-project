@@ -15,14 +15,18 @@ class Ball {
   }
 
   display() {
-    imageMode(CENTER);
-    fill("deepPink");
     var pos = this.body.position;
-    ellipse(pos.x, pos.y, this.radius, this.radius);
+
+    push();
+    translate(pos.x, pos.y);
+    imageMode(CENTER);
+    image(this.image, 0, 0, this.radius*2, this.radius*2);
+    pop();
   }
+
 
   jump() {
     console.log("jumping");
-    Body.applyForce(this.body, this.body.position, { x: 285, y: 210 });
+    Body.applyForce(this.body, this.body.position, { x: 260, y: 200 });
   }
 }

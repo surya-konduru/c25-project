@@ -4,6 +4,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
+var engine, world;
 var paper, bin, ground;
 
 function preload() {
@@ -18,21 +19,20 @@ function setup() {
   world = engine.world;
 
   //Create the Bodies Here.
-  paper = new Ball(100, 600, 20);
-  bin = new Bin(600, 600, 100, 50);
   ground = new Ground(400, 650, 800, 100);
-  Engine.run(engine);
-
+  bin = new Bin(600, 580, 80, 80);
+  paper = new Ball(150, 600, 20);
 }
 
 
 function draw() {
+  Engine.update(engine);
   rectMode(CENTER);
-  background(0);
+  background("white");
 
-  paper.display();
   ground.display();
   bin.display();
+  paper.display();
 
   drawSprites();
 
